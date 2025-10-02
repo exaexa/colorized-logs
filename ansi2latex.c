@@ -119,9 +119,9 @@ static void span(void)
     else if (_fg!=-1)
     {
         if (fl&BOLD)
-            printf("\\color[HTML]{%c%c%c%c%c%c}", _fg&1?'f':'5', _fg&1?'f':'5', _fg&2?'f':'5', _fg&2?'f':'5', _fg&4?'f':'5', _fg&4?'f':'5');
+            printf("\\color[HTML]{%c%c%c%c%c%c}", _fg&1?'c':'4', _fg&1?'c':'4', _fg&2?'c':'4', _fg&2?'c':'4', _fg&4?'c':'4', _fg&4?'c':'4');
         else
-            printf("\\color[HTML]{%c%c%c%c%c%c}", _fg&1?'a':'0', _fg&1?'a':'0', _fg&2?'a':'0', _fg&2?'a':'0', _fg&4?'a':'0', _fg&4?'a':'0');
+            printf("\\color[HTML]{%c%c%c%c%c%c}", _fg&1?'8':'0', _fg&1?'8':'0', _fg&2?'8':'0', _fg&2?'8':'0', _fg&4?'8':'0', _fg&4?'8':'0');
     }
     else if (fl&BOLD)
         printf("\\bfseries{}");
