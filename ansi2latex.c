@@ -15,9 +15,6 @@ static bool no_header=false, white=false, contrast=false, no_wrap=false, in_span
 static bool in_hyperlink=false;
 static int fg, bg, fl, frgb, brgb;
 
-static const char *cols[]={"black","red","green","yellow!66!brown","blue","magenta","cyan","black!25",
-                           "black!75","red!50","green!50","yellow!80","blue!50","magenta!50","cyan!50","black!5"};
-
 typedef unsigned char u8;
 
 
@@ -122,9 +119,9 @@ static void span(void)
     else if (_fg!=-1)
     {
         if (fl&BOLD)
-            printf("\\color[HTML]{%c%c%c}", _fg&1?'f':'5', _fg&2?'f':'5', _fg&4?'f':'5');
+            printf("\\color[HTML]{%c%c%c%c%c%c}", _fg&1?'f':'5', _fg&1?'f':'5', _fg&2?'f':'5', _fg&2?'f':'5', _fg&4?'f':'5', _fg&4?'f':'5');
         else
-            printf("\\color[HTML]{%c%c%c}", _fg&1?'a':'0', _fg&2?'a':'0', _fg&4?'a':'0');
+            printf("\\color[HTML]{%c%c%c%c%c%c}", _fg&1?'a':'0', _fg&1?'a':'0', _fg&2?'a':'0', _fg&2?'a':'0', _fg&4?'a':'0', _fg&4?'a':'0');
     }
     else if (fl&BOLD)
         printf("\\bfseries{}");
@@ -292,6 +289,7 @@ int main(int argc, char **argv)
 "\\documentclass{article}\n"
 "\\usepackage{xcolor}\n"
 "\\usepackage{fancyvrb}\n"
+"\\usepackage{lmodern}\n"
 "\\begin{document}\n"
 );
         printf(
