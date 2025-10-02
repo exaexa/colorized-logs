@@ -17,6 +17,7 @@ endif (HAVE_LIB_UTIL)
 CHECK_FUNCTION_EXISTS(openpty HAVE_FUNC_OPENPTY)
 
 add_executable(ansi2html ansi2html.c)
+add_executable(ansi2latex ansi2latex.c)
 add_executable(ansi2txt ansi2txt.c)
 add_executable(ttyrec2ansi ttyrec2ansi.c)
 add_executable(pipetty pipetty.c signals.c)
@@ -39,6 +40,7 @@ include_directories(${CMAKE_BINARY_DIR})
 
 install(TARGETS
     ansi2html
+    ansi2latex
     ansi2txt
     ttyrec2ansi
     pipetty
