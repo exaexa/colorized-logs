@@ -326,10 +326,17 @@ normal:
             printf("}");
             in_hyperlink=0;
         }
-	putchar(ch);
-	/*re*/span();
-	ch=getchar();
-	goto normal;
+        putchar(ch);
+        /*re*/span();
+        ch=getchar();
+        goto normal;
+	case '{':
+	case '}':
+	case '\\':
+	case '[':
+	case ']':
+        putchar('\\');
+        // fallthrough
     default:
         putchar(ch);
         ch=getchar();
