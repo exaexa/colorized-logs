@@ -155,7 +155,7 @@ static void print_string(const char *restrict str)
         switch (*str)
         {
         case '\\':
-            printf("\\\\");
+            printf("\\textbackslash{}");
             break;
         case '%':
             printf("\\%%");
@@ -295,11 +295,11 @@ int main(int argc, char **argv)
         printf(
 "\\pagecolor{%s}\n"
 "\\color{black!50}\n",
-		white?"white":"black"
-	);
-	printf(
+        white?"white":"black"
+    );
+    printf(
 "\\begin{Verbatim}[commandchars=\\\\\\{\\}]\n"
-	);
+    );
     }
 
     fg=bg=-1;
@@ -330,11 +330,14 @@ normal:
         /*re*/span();
         ch=getchar();
         goto normal;
-	case '{':
-	case '}':
-	case '\\':
-	case '[':
-	case ']':
+    case '\\':
+        printf("\\textbackslash{}");
+        ch=getchar();
+        goto normal;
+    case '{':
+    case '}':
+    case '[':
+    case ']':
         putchar('\\');
         // fallthrough
     default:
